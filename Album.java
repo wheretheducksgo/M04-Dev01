@@ -6,6 +6,7 @@
  * @version (a version number or a date)
  */
 import java.util.List;
+//Class for an album, stores info on each one.
 public class Album implements Comparable<Album> {
   private int id;
   private String title;
@@ -17,6 +18,7 @@ public class Album implements Comparable<Album> {
     this.numSongs = numSongs;
     this.artists = artists;
   }
+  //get functions for id, title, numSongs, and artists
   public int getId() {
     return id;
   }
@@ -29,10 +31,12 @@ public class Album implements Comparable<Album> {
   public List<String> getArtists() {
     return artists;
   }
+  //To string formating
   @Override
   public String toString() {
     return "ID: " + id + " -- " + title + " -- " + numSongs + " -- " + artists;
   }
+  //Compare function for numSongs
   public int compareTo(Album o){
     return this.numSongs - o.numSongs;
   }
