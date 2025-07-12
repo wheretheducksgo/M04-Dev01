@@ -5,6 +5,7 @@
  * @author (your name)
  * @version (a version number or a date)
  */
+//Doubly Linked List Class
 public class DLL<T extends Comparable<T>>{
   private Node<T> head;
   private Node<T> tail;
@@ -14,6 +15,7 @@ public class DLL<T extends Comparable<T>>{
     tail = null;
     size = 0;
   }
+  //adds new node to the end of the list
   public Node<T> append(T data){
     Node<T> newNode = new Node<T>(data);
     if(head == null){
@@ -27,7 +29,7 @@ public class DLL<T extends Comparable<T>>{
     size++;
     return newNode;
   }
-  
+  //inserts new node in a specified location
   public Node<T> insert(int location, T data){
     if(location < 0 || location > size){
       throw new IllegalArgumentException("Location not in list");
@@ -54,6 +56,7 @@ public class DLL<T extends Comparable<T>>{
     size++;
     return newNode;
   }
+  //Deletes a node at a specified location
   public Node<T> delete(int location){
     if(location < 0 || location >= size){
       throw new IllegalArgumentException("Location out of bounds");
@@ -75,6 +78,7 @@ public class DLL<T extends Comparable<T>>{
     size--;
     return current;
   }
+  //returns the value of a specific index
   public int getIndex(T data){
     Node<T> current = head;
     for(int i = 0; i < size; i++){
@@ -85,6 +89,7 @@ public class DLL<T extends Comparable<T>>{
     }
     return -1;
   }
+  //toString formatting
   public String toString(){
     String result = "";
     Node<T> current = head;
@@ -100,19 +105,21 @@ public class DLL<T extends Comparable<T>>{
     }
     return result;
   }
+  //shuffles the list
   public Node<T> shuffle() {
     Node<T> current = head;
-    Node<T> temp = null;
+    Node<T> place_holder = null;
     int index = 0;
     while (current != null) {
       index = (int) (Math.random() * size);
-      temp = current;
+      place_holder = current;
       current = current.getNext();
       delete(index);
-      insert(index, temp.getData());
+      insert(index, place_holder.getData());
     }
     return head;
   }
+  //moves through the list and creates a new list
   public DLL<T> partition(T data){
     DLL<T> newList = new DLL<T>();
     Node<T> current = head;
