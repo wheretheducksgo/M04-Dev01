@@ -16,6 +16,7 @@ public class DLLTest
     /**
      * Default constructor for test class DLLTest
      */
+    //empty constructor
     public DLLTest()
     {
     }
@@ -39,9 +40,7 @@ public class DLLTest
     public void tearDown()
     {
     }
-
-    
-
+    //tests the append function
     @Test
     public void testAppend()
     {
@@ -50,7 +49,7 @@ public class DLLTest
         dLL1.append("hey");
         assertEquals("hello <-> hey <-> null", dLL1.toString());
     }
-
+    //tests the insert function
     @Test
     public void testInsert()
     {
@@ -60,7 +59,7 @@ public class DLLTest
         dLL1.insert(1, "hi");
         assertEquals("hello <-> hi <-> hey <-> null", dLL1.toString());
     }
-
+    //tests the delete function
     @Test
     public void testDelete()
     {
@@ -71,7 +70,7 @@ public class DLLTest
         dLL1.delete(1);
         assertEquals("hello <-> hey <-> null", dLL1.toString());
     }
-
+    //tests the getIndex function
     @Test
     public void testGetIndex()
     {
@@ -81,7 +80,7 @@ public class DLLTest
         assertEquals(0, dLL1.getIndex("hi"));
         assertEquals(-1, dLL1.getIndex("Hello"));
     }
-
+    //tests the shuffle function
     @Test
     public void testShuffle()
     {
